@@ -1,10 +1,11 @@
 <ul id="post-list">
-    {% for post in paginator.posts %}
-        <li>
-            <a href="{{ "/" | relative_url  }}{{ post.url | remove_first: '/' }}"><aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
-            <a href="{{ "/" | relative_url  }}{{ post.url | remove_first: '/' }}">{{ post.title }} <h2>{{ post.description }}</h2></a>
-        </li>
-    {% endfor %}
+  {% for post in paginator.posts %}
+    <li>
+      <a class='' href="{{ "/" | relative_url  }}{{ post.url | remove_first: '/' }}"><img src="{{ "/" | relative_url  }}{{ post.header_image }}"></a>
+      <a href="{{ "/" | relative_url  }}{{ post.url | remove_first: '/' }}"><aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
+      <a href="{{ "/" | relative_url  }}{{ post.url | remove_first: '/' }}">{{ post.title }} <h2>{{ post.description }}</h2></a>
+    </li>
+  {% endfor %}
 </ul>
 
 {% if paginator.previous_page or paginator.next_page %}
